@@ -5,17 +5,25 @@
 Вывод только маленьких букв. Учесть, что пользователь может ввести заглавную
 """
 
-simbol = input('Введи букву английского алфавита: ')
 
-if simbol.isupper():
-    print('Введите строчную букву английского алфавита ')
-    exit(0)
+def print_three_simbol(simbol):
+    result = ""
+    current_pos = ord(simbol)
 
-current_pos = ord(simbol)
+    for i in range(3):
+        current_pos_i = current_pos + i + 1
+        if current_pos_i > ord('z'):
+            current_pos = ord('a') - 1
+            current_pos_i = current_pos + 1
+        result += chr(current_pos_i)
+    return result
 
-for i in range(3):
-    current_pos_i = current_pos + i + 1
-    if current_pos_i > ord('z'):
-        current_pos = ord('a') - 1
-        current_pos_i = current_pos + 1
-    print(chr(current_pos_i))
+
+if __name__ == '__main__':
+    simbol = input('Введи букву английского алфавита: ')
+
+    if simbol.isupper():
+        print('Введите строчную букву английского алфавита ')
+        exit(0)
+
+    print(print_three_simbol(simbol))
