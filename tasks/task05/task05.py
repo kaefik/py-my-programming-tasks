@@ -4,11 +4,12 @@
 Выделите из этой строки имя файла без расширения.
 """
 
+
 def cut_only_filename(s):
     result = ''
     len_s = len(s)
     for i in range(len_s):
-        simbol = s[-i-1]
+        simbol = s[-i - 1]
         if simbol == '\\':
             break
         result = simbol + result
@@ -16,12 +17,13 @@ def cut_only_filename(s):
             result = ''
     return result
 
-# тестовая строка
-# strs = 'c:\WebServers\home\testsite\www\myfile.txt'
-# strs = 'myfile.txt'
-strs = input('Введите полный путь до файла, а я выделю имя файла без расширения: ')
 
+if __name__ == '__main__':
+    # тестовая строка
+    # strs = 'c:\WebServers\home\testsite\www\myfile.txt'
+    # strs = 'myfile.txt'
+    strs = input('Введите полный путь до файла, а я выделю имя файла без расширения: ')
 
-name = cut_only_filename(strs)
+    name = cut_only_filename(strs)
 
-print('Имя файла без расширения: ', name)
+    print('Имя файла без расширения: ', name)
