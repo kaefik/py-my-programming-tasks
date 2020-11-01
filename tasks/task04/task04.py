@@ -13,6 +13,7 @@
 
 import random
 
+
 # генерация пароля
 def generate_password(abc_pass, len_pass):
     password = ''
@@ -27,9 +28,10 @@ def generate_password(abc_pass, len_pass):
         password += simbol
     return password
 
+
 # проверка соответствует ли правилу генерации моих паролей
 def is_my_password(pswrd):
-    flag_upper = True # первая буква должна быть заглавной
+    flag_upper = True  # первая буква должна быть заглавной
     for sim in pswrd:
         if sim.isalpha():
             if flag_upper:
@@ -42,30 +44,32 @@ def is_my_password(pswrd):
     return True
 
 
-abc = 'abcdefghijklmnopqrstuvwxyz'
-number = '0123456789'
-spec_simbol = '~`!@$%^&*(){}<>'
+if __name__ == '__main__':
 
-abc_pass = abc + number + spec_simbol
+    abc = 'abcdefghijklmnopqrstuvwxyz'
+    number = '0123456789'
+    spec_simbol = '~`!@$%^&*(){}<>'
 
-while True:
-    len_password = input('Введите длину пароля (число): ')
-    if len_password.isdigit():
-        break
-    else:
-        print('введенное строка не число.')
+    abc_pass = abc + number + spec_simbol
 
-my_pass = generate_password(abc_pass, int(len_password))
+    while True:
+        len_password = input('Введите длину пароля (число): ')
+        if len_password.isdigit():
+            break
+        else:
+            print('введенное строка не число.')
 
-print('Сгенирированный пароль: ', my_pass)
+    my_pass = generate_password(abc_pass, int(len_password))
 
-# соответствует моему алгоритму
-check_password = 'WsE}t68Kg@(U'
-fl = is_my_password(check_password)
+    print('Сгенирированный пароль: ', my_pass)
 
-print(f"Ответ на вопрос соответствует ли пароль {check_password} моему алгоритму: ", fl)
+    # соответствует моему алгоритму
+    check_password = 'WsE}t68Kg@(U'
+    fl = is_my_password(check_password)
 
-# НЕ соответствует моему алгоритму
-check_password2 = 'WsE}T68Kg@(U'
-fl2 = is_my_password(check_password2)
-print(f"Ответ на вопрос соответствует ли пароль {check_password2} моему алгоритму: ", fl2)
+    print(f"Ответ на вопрос соответствует ли пароль {check_password} моему алгоритму: ", fl)
+
+    # НЕ соответствует моему алгоритму
+    check_password2 = 'WsE}T68Kg@(U'
+    fl2 = is_my_password(check_password2)
+    print(f"Ответ на вопрос соответствует ли пароль {check_password2} моему алгоритму: ", fl2)
